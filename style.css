@@ -7,13 +7,36 @@ body{
     background-color: whitesmoke ;
 }
 *{box-sizing: border-box;}
+#newBook{
+     display: none;
 
-#myBook {
+}
+#requette{
+    display: none;
+
+}
+#addBook{
+    margin: 0 auto;
+    display: block;
+}
+#content{
     text-align: center;
 }
+#myBook {
+    text-align: center;
+    width: 100%;
+    
+}
 .title{
-    border : 0.05rem solid;
+    width: 100%;
+    border : 1px gray solid;
     background-color: rgb(207, 212,216);
+    box-shadow: 6px 6px 10px gray;
+    margin: auto;
+    text-align: center;
+}
+.h2 {
+    text-align: center;
 }
 hr{
     margin-top: 20px;
@@ -26,4 +49,64 @@ button{
     padding-bottom: 0.3rem;
     padding-right: 0.8rem;
     padding-left: 0.8rem;
+    height: 40px;
 }
+input{
+    display:block;
+    flex-direction: row;
+    width: 100%;
+    
+}
+
+label{
+    margin-top: 20px;
+    display: block;
+    }
+ 
+ #search{
+     border: lime;
+     margin-top: 20px;
+     width: 150px;
+     font-size: medium;
+     height: 40px;
+     
+ }   
+  #cancel{
+      border: lime;
+      font-size: medium;
+      margin-top: 10px;
+      width: 150px;
+      display: inline-block;
+      background-color: rgb(223, 66, 66);
+      height: 40px;
+
+  }
+  #requette , p{
+      text-align: center;
+  }
+  #carte {
+      display: flex;
+      flex-wrap:wrap;
+      justify-content: space-around;
+     
+  }
+   
+  .livre{
+      border: black 3px solid;
+      margin: 7px;
+      width: 45%;
+      height: 400px;
+      text-align: justify;
+      padding: 14px;
+      overflow: auto;
+  }
+  #bookmark{
+      background-color: transparent;
+      border: none;
+      position:  relative;
+      left: 90%;
+  }
+  #bookmark ,i {
+      height: 3px;
+      color: brown;
+  }
