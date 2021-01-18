@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 20px;
+  padding: 20px;
+  background-color: whitesmoke; }
+  body #myBooks .title {
+    width: 100%;
+    border: 1px gray solid;
+    background-color: #cfd4d8;
+    box-shadow: 6px 6px 10px gray;
+    margin: auto;
+    text-align: center; }
+  body #myBooks .h2 {
+    text-align: center; }
+  body #myBooks #requette {
+    display: none; }
+    body #myBooks #requette #requette, body #myBooks #requette h2 {
+      text-align: center; }
+    body #myBooks #requette #carte {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around; }
+      body #myBooks #requette #carte .livre {
+        border: black 3px solid;
+        margin: 7px;
+        width: 45%;
+        height: 400px;
+        text-align: justify;
+        padding: 30px;
+        overflow: auto; }
+        body #myBooks #requette #carte .livre #bookmark {
+          background-color: transparent;
+          border: none;
+          position: relative;
+          left: 90%; }
+          body #myBooks #requette #carte .livre #bookmark i {
+            height: 3px;
+            color: brown; }
+  body #myBooks hr {
+    margin-top: 20px; }
+  body #myBooks #content {
+    text-align: center; }
+
+* {
+  box-sizing: border-box; }
+
+#newBook {
+  display: none; }
+  #newBook label {
+    margin-top: 20px;
+    display: block; }
+    #newBook label input {
+      display: block;
+      flex-direction: row;
+      width: 100%; }
+  #newBook #search {
+    border: lime;
+    margin-top: 20px;
+    width: 150px;
+    font-size: medium;
+    height: 40px;
+    background-color: #4ba1b1;
+    color: aliceblue; }
+  #newBook #cancel {
+    border: lime;
+    font-size: medium;
+    margin-top: 10px;
+    width: 150px;
+    display: inline-block;
+    background-color: #df4242;
+    height: 40px;
+    color: aliceblue; }
+
+#addBook {
+  background-color: #4ba1b1;
+  color: #dbcfcf;
+  font-size: 1.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  height: 40px;
+  margin: 0 auto;
+  display: block; }
+
+/*# sourceMappingURL=style.css.map */
