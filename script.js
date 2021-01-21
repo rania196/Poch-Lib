@@ -1,54 +1,4 @@
 
-let divFavBook = $('<div id="favBook"><div>');
-$('#content').append(divFavBook);
-function setFavori(item) {
-  return $('<div class="livre">' +
-  '<button class="trash" id="'+item.id+'" onclick="trash(\''+item.id+'\')"><i class="fa fa-trash fa_custom fa-1x"></i></button>' +
-  '<h3>Titre : ' + item.name + '</h3>' +
-  '<h5> Id :' + item.id + '</h5>' +
-  '<h5> Auteur : ' + item.author +'</h5>' +
-  '<p> Description: ' + item.description+ '</p>' +
-  '<img src=' + item.image + '>'+
-  '</div>');
-}
-
-
-function favori(item) {
-  console.log(item);
-  let pochList = [];
-  if(sessionStorage.getItem("maPochList") !== null) {
-    pochList = JSON.parse(sessionStorage.getItem("maPochList"));
-  }
-
- 
-  if (pochList.includes(item)) {
-    alert("Vous ne pouvez pas ajouter deux fois le même livre!")
-  }
-  else {
-    pochList.push(item);
-
-    sessionStorage.setItem("maPochList", JSON.stringify(pochList));
-    item = JSON.parse(item);
-    divFavBook.append(setFavori(item));
-  }
-}
-
-function trash(id) {
-  let pochList = [];
-  if(sessionStorage.getItem("maPochList") !== null) {
-    pochList = JSON.parse(sessionStorage.getItem("maPochList"));
-  }
-
-  for(var i in pochList) {
-    var item = JSON.parse(pochList[i]);
-    if(item.id == id) {
-      pochList.splice(i, 1);
-      $('#'+id).parent().remove();
-      sessionStorage.setItem('maPochList', JSON.stringify(pochList));
-    }
-  }
-}
-
 $(document).ready(function () {
 
   //Creation of the button that add a book
@@ -56,21 +6,21 @@ $(document).ready(function () {
   $("hr").before(btn);
 
   // creation of the labels
-  let $label1 = $("<label>").text('Titre du livre');
-  let $label2 = $("<label>").text('Auteur');
+  let label1 = $("<label>").text('Titre du livre');
+  let label2 = $("<label>").text('Auteur');
 
   //Creation of the Inputs
-  let $Input1 = $('<input id="inputtitle">');
-  let $Input2 = $('<input id="inputautor">');
+  let Input1 = $('<input id="inputtitle">');
+  let Input2 = $('<input id="inputautor">');
 
   // Assotiation of inputs and labels
-  $Input1.appendTo($label1);
-  $Input2.appendTo($label2);
+  Input1.appendTo(label1);
+  Input2.appendTo(label2);
 
   //Creation of a DIV containing Labels
   let divForm = $('<div id="newBook"></div>');
-  $label1.appendTo(divForm);
-  $label2.appendTo(divForm);
+  label1.appendTo(divForm);
+  label2.appendTo(divForm);
 
   //Creation of the search button
   let searchBtn = $("<button id='search'>Rechercher</button>");
@@ -83,10 +33,10 @@ $(document).ready(function () {
   //Injection of the div in the html code
   $("BUTTON").after(divForm);
   $("BUTTON").after("<br/>");
-  $Input1.before("<br/>");
-  $label1.after("<br/>");
-  $Input2.before("<br/>");
-  $label2.after("<br/>");
+  Input1.before("<br/>");
+  label1.after("<br/>");
+  Input2.before("<br/>");
+  label2.after("<br/>");
 
   //display of the onclick form
   btn.click(function () {
@@ -125,12 +75,12 @@ $(document).ready(function () {
   //getting the result after clicking search button
   searchBtn.click(function () {
 
-    if ($Input1.val() == '' ||  $Input2.val() == '') {
+    if (Input1.val() == '' ||  Input2.val() == '') {
       alert("Veuillez entrer le nom de l'auteur ou le titre du livre");
     }
     else {
-      const title = $Input1.val();
-      const author = $Input2.val();
+      const title = Input1.val();
+      const author = Input2.val();
       let livres = [];
       $("#content").hide();
       divResult.show();
@@ -144,8 +94,7 @@ $(document).ready(function () {
         dataType: "json",
       })
         //Ce code sera exécuté en cas de succès - La réponse du serveur est passée à done()
-        /*On peut par exemple convertir cette réponse en chaine JSON et insérer
-      * cette chaine dans un div id="res"*/
+        
         .done(function (response) {
           livres = response.items;
           divCarte.empty();
@@ -192,6 +141,56 @@ $(document).ready(function () {
 
 
 })
+//create a div to stocks favorites books 
+let divFavBook = $('<div id="favBook"><div>');
+$('#content').append(divFavBook);
+// create a function that returns a div with information of favorite books
+function setFavori(item) {
+  return $('<div class="livre">' +
+  '<button class="trash" id="'+item.id+'" onclick="trash(\''+item.id+'\')"><i class="fa fa-trash fa_custom fa-1x"></i></button>' +
+  '<h3>Titre : ' + item.name + '</h3>' +
+  '<h5> Id :' + item.id + '</h5>' +
+  '<h5> Auteur : ' + item.author +'</h5>' +
+  '<p> Description: ' + item.description+ '</p>' +
+  '<img src=' + item.image + '>'+
+  '</div>');
+}
+
+//create a function for the action click on the button "bookmark"
+function favori(item) {
+  console.log(item);
+  let pochList = [];
+  if(sessionStorage.getItem("maPochList") !== null) {
+    pochList = JSON.parse(sessionStorage.getItem("maPochList"));
+  }
+
+  if (pochList.includes(item)) {
+    alert("Vous ne pouvez pas ajouter deux fois le même livre!")
+  }
+  else {
+    pochList.push(item);
+
+    sessionStorage.setItem("maPochList", JSON.stringify(pochList));
+    item = JSON.parse(item);
+    divFavBook.append(setFavori(item)); 
+  }
+}
+
+function trash(id) {
+  let pochList = [];
+  if(sessionStorage.getItem("maPochList") !== null) {
+    pochList = JSON.parse(sessionStorage.getItem("maPochList"));
+  }
+
+  for(var i in pochList) {
+    var item = JSON.parse(pochList[i]);
+    if(item.id == id) {
+      pochList.splice(i, 1);
+      $('#'+id).parent().remove();
+      sessionStorage.setItem('maPochList', JSON.stringify(pochList));
+    }
+  }
+}
 
 
 

@@ -1,11 +1,12 @@
 $blue :  rgb(75, 161, 177) ;
+$yellow: rgb(229, 243, 151);
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 1.6;
     margin: 20px;
     padding: 20px;
-    background-color: whitesmoke ;
+    background-color: rgb(185, 241, 183) ;
  #myBooks{
         .title{
            width: 100%;
@@ -36,16 +37,22 @@ body{
               text-align: justify;
               padding: 10px;
               overflow: auto;
-              
+              border-radius: 10%;
+              background-color: $yellow;
               .bookmark{
               background-color: transparent;
               border: none;
               position:  relative;
               left: 90%;
+              font-size: 25px;
               i {
                 height: 3px;
-                color: brown;
+                color: rgb(112, 93, 179);
                 }
+
+                }
+                .bookmark:hover{
+                  color: blue;
                 }
               }
                
@@ -67,12 +74,26 @@ body{
              .livre{
                
               border: black 3px solid;
+              border-radius: 10%;
               margin: 7px;
               width: 45%;
               height: 300pt;
               text-align: justify;
               padding: 10px;
               overflow: auto;
+              background-color: $yellow;
+              .trash{
+                background-color: transparent;
+                border: none;
+                color:red;
+                padding: 10px 14px;
+               font-size: 30px;
+               text-shadow: 2px 2px 4px #00ffff;
+               position: relative;
+               left: 90%;
+               
+               
+              }
               
              }
             }
@@ -131,10 +152,19 @@ body{
     margin: 0 auto;
     display: block;
 }
-@media screen and (min-width : 1000px){
-#cancel {
-  background-color: black !important;
+@media screen and (max-width : 700px){
+#favBook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+   .livre{
+     margin: auto; 
+    width: 90% !important;
+    height: 100px;
+    
+  }
 }
+
 }
 
 

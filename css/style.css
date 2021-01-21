@@ -4,7 +4,7 @@ body {
   line-height: 1.6;
   margin: 20px;
   padding: 20px;
-  background-color: whitesmoke; }
+  background-color: #b9f1b7; }
   body #myBooks .title {
     width: 100%;
     border: 1px gray solid;
@@ -29,15 +29,20 @@ body {
         height: 300pt;
         text-align: justify;
         padding: 10px;
-        overflow: auto; }
+        overflow: auto;
+        border-radius: 10%;
+        background-color: #e5f397; }
         body #myBooks #requette #carte .livre .bookmark {
           background-color: transparent;
           border: none;
           position: relative;
-          left: 90%; }
+          left: 90%;
+          font-size: 25px; }
           body #myBooks #requette #carte .livre .bookmark i {
             height: 3px;
-            color: brown; }
+            color: #705db3; }
+        body #myBooks #requette #carte .livre .bookmark:hover {
+          color: blue; }
   body #myBooks hr {
     margin-top: 20px; }
   body #myBooks #content h2 {
@@ -48,12 +53,23 @@ body {
     justify-content: space-around; }
     body #myBooks #content #favBook .livre {
       border: black 3px solid;
+      border-radius: 10%;
       margin: 7px;
       width: 45%;
       height: 300pt;
       text-align: justify;
       padding: 10px;
-      overflow: auto; }
+      overflow: auto;
+      background-color: #e5f397; }
+      body #myBooks #content #favBook .livre .trash {
+        background-color: transparent;
+        border: none;
+        color: red;
+        padding: 10px 14px;
+        font-size: 30px;
+        text-shadow: 2px 2px 4px #00ffff;
+        position: relative;
+        left: 90%; }
 
 * {
   box-sizing: border-box; }
@@ -97,8 +113,14 @@ body {
   margin: 0 auto;
   display: block; }
 
-@media screen and (min-width: 1000px) {
-  #cancel {
-    background-color: black !important; } }
+@media screen and (max-width: 700px) {
+  #favBook {
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important; }
+    #favBook .livre {
+      margin: auto;
+      width: 90% !important;
+      height: 100px; } }
 
 /*# sourceMappingURL=style.css.map */
