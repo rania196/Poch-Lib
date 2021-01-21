@@ -3,9 +3,9 @@
 ---
 
 **Technologies**
- -JS
- -CSS/sass
- -HTML
+ - JS
+ - CSS/sass
+ - HTML
 
 **Contribute to the project**
  Pull requests are welcome.
