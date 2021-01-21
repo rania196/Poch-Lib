@@ -32,9 +32,9 @@ body{
               border: black 3px solid;
               margin: 7px;
               width: 45%;
-              height: 400px;
+              height: 300pt;
               text-align: justify;
-              padding: 30px;
+              padding: 10px;
               overflow: auto;
               
               .bookmark{
@@ -48,23 +48,36 @@ body{
                 }
                 }
               }
-              
+               
             }
         }
-        #erreur{
-          height:30px ;
-          text-align: center ;
-          font-size: 42pt;
-          text-decoration-color: red;
-        }
+       
         hr{
             margin-top: 20px;
         }
         #content{
-            text-align: center;
+         
+             h2{
+              text-align: center;
+             }
+             #favBook{
+               display: flex;
+               flex-wrap:wrap;
+             justify-content: space-around;
+             .livre{
+               
+              border: black 3px solid;
+              margin: 7px;
+              width: 45%;
+              height: 300pt;
+              text-align: justify;
+              padding: 10px;
+              overflow: auto;
+              
+             }
+            }
         }
-    
-     
+
 
     }
 }
@@ -105,6 +118,7 @@ body{
     }  
     
 }
+
 #addBook{
     background-color: $blue;
     color: rgb(219, 207, 207);
@@ -116,5 +130,12 @@ body{
     height: 40px;
     margin: 0 auto;
     display: block;
-    
 }
+@media screen and (min-width : 1000px){
+#cancel {
+  background-color: black !important;
+}
+}
+
+
+

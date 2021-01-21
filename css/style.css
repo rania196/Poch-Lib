@@ -26,22 +26,34 @@ body {
         border: black 3px solid;
         margin: 7px;
         width: 45%;
-        height: 400px;
+        height: 300pt;
         text-align: justify;
-        padding: 30px;
+        padding: 10px;
         overflow: auto; }
-        body #myBooks #requette #carte .livre #bookmark {
+        body #myBooks #requette #carte .livre .bookmark {
           background-color: transparent;
           border: none;
           position: relative;
           left: 90%; }
-          body #myBooks #requette #carte .livre #bookmark i {
+          body #myBooks #requette #carte .livre .bookmark i {
             height: 3px;
             color: brown; }
   body #myBooks hr {
     margin-top: 20px; }
-  body #myBooks #content {
+  body #myBooks #content h2 {
     text-align: center; }
+  body #myBooks #content #favBook {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+    body #myBooks #content #favBook .livre {
+      border: black 3px solid;
+      margin: 7px;
+      width: 45%;
+      height: 300pt;
+      text-align: justify;
+      padding: 10px;
+      overflow: auto; }
 
 * {
   box-sizing: border-box; }
@@ -84,5 +96,9 @@ body {
   height: 40px;
   margin: 0 auto;
   display: block; }
+
+@media screen and (min-width: 1000px) {
+  #cancel {
+    background-color: black !important; } }
 
 /*# sourceMappingURL=style.css.map */

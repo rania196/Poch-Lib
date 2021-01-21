@@ -1,3 +1,6 @@
+
+let divFavBook = $('<div id="favBook"><div>');
+$('#content').append(divFavBook);
 function setFavori(item) {
   return $('<div class="livre">' +
   '<button class="trash" id="'+item.id+'" onclick="trash(\''+item.id+'\')"><i class="fa fa-trash fa_custom fa-1x"></i></button>' +
@@ -11,10 +14,12 @@ function setFavori(item) {
 
 
 function favori(item) {
+  console.log(item);
   let pochList = [];
   if(sessionStorage.getItem("maPochList") !== null) {
     pochList = JSON.parse(sessionStorage.getItem("maPochList"));
   }
+
  
   if (pochList.includes(item)) {
     alert("Vous ne pouvez pas ajouter deux fois le même livre!")
@@ -24,7 +29,7 @@ function favori(item) {
 
     sessionStorage.setItem("maPochList", JSON.stringify(pochList));
     item = JSON.parse(item);
-    $('#content').append(setFavori(item));
+    divFavBook.append(setFavori(item));
   }
 }
 
@@ -112,7 +117,7 @@ $(document).ready(function () {
 
   for (var i in pochList) {
     var item = JSON.parse(pochList[i]);
-    $('#content').append(setFavori(item));
+    divFavBook.append(setFavori(item));
   }
   
 
@@ -120,7 +125,7 @@ $(document).ready(function () {
   //getting the result after clicking search button
   searchBtn.click(function () {
 
-    if ($Input1.val() == '' && $Input2.val() == '') {
+    if ($Input1.val() == '' ||  $Input2.val() == '') {
       alert("Veuillez entrer le nom de l'auteur ou le titre du livre");
     }
     else {
@@ -148,11 +153,12 @@ $(document).ready(function () {
             for (i in livres) {
               let description = livres[i].volumeInfo.description ? livres[i].volumeInfo.description.substr(0, 200) : "Aucune";
               let image =  livres[i].volumeInfo.imageLinks.smallThumbnail ?  livres[i].volumeInfo.imageLinks.smallThumbnail : "/commingimg.png";
+              let author = livres[i].volumeInfo.authors ? livres[i].volumeInfo.authors[0] : "auteur inconnu"
               let livre = $('<div class="livre">' +
                 '<button class="bookmark" data-id="'+livres[i].id+'" data-title="'+livres[i].volumeInfo.title+'" data-description="'+description+'" data-author ="'+ livres[i].volumeInfo.authors + '" data-image ="'+ livres[i].volumeInfo.imageLinks.smallThumbnail +'"><i class="fa fa-bookmark fa_custom fa-1x"></i></button>' +
                 '<h3>Titre : ' + livres[i].volumeInfo.title + '</h3>' +
                 '<h5> Id :' + livres[i].id + '</h5>' +
-                '<h5> Auteur : ' + livres[i].volumeInfo.authors + '</h5>' +
+                '<h5> Auteur : ' + author + '</h5>' +
                 '<p> Description: ' + description+ '</p>' +
                 '<img src=' + image + '>'+
                 '</div>');
@@ -167,7 +173,7 @@ $(document).ready(function () {
 
           }
           else {
-            let errorMessage = $('<div id="erreur">Aucun livre n a été trouvé </div>');
+            let errorMessage = $('<section><div class="erreur">Aucun livre n a été trouvé </section></div>');
             $(divCarte).append(errorMessage);
           }
 
